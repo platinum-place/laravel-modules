@@ -1,9 +1,10 @@
 <?php
 
-namespace Modules\Auth\Providers;
+namespace Modules\Auth\app\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Modules\Auth\app\Http\Middleware\EnsureEmailIsVerified;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app['router']->aliasMiddleware('verified', EnsureEmailIsVerified::class);
     }
 
     /**
@@ -22,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('api')
-            ->group(__DIR__.'/../routes/api.php');
+            ->group(__DIR__.'/../../routes/api.php');
+
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
     }
 }
