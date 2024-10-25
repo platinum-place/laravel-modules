@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Auth\app\Http\Services;
+namespace Modules\Auth\app\Services;
 
 use App\Services\BaseService;
-use Modules\Auth\app\Http\Repositories\UserRepository;
+use Modules\Auth\app\Repositories\UserRepository;
 
 class UserService extends BaseService
 {

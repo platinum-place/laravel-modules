@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Models\LogLevel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

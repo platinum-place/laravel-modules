@@ -25,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
             ->middleware('api')
             ->group(__DIR__.'/../../routes/api.php');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        Route::middleware('web')
+            ->group(__DIR__.'/../../routes/web.php');
+
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 }

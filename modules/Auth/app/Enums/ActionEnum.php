@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\app\Http\Enums;
+namespace Modules\Auth\app\Enums;
 
 use App\Enums\EnumsTrait;
 

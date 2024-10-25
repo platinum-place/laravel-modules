@@ -6,7 +6,6 @@ use App\Enums\LogLevelEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Auth\app\Http\Enums\ActionEnum;
 
 abstract class BaseModel extends Model
 {
@@ -56,8 +55,8 @@ abstract class BaseModel extends Model
 
     protected static function newFactory()
     {
-        $class_name = str_starts_with(static::class,'Modules') ?
-            str_replace('app\Models', 'database\factories', static::class).'Factory':
+        $class_name = str_starts_with(static::class, 'Modules') ?
+            str_replace('app\Models', 'database\factories', static::class).'Factory' :
             str_replace('App\Models', 'Database\Factories', static::class).'Factory';
 
         if (! class_exists($class_name)) {
