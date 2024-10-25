@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Modules\Auth\app\Models\Client;
 use Modules\Auth\app\Models\User;
 
 class AdminUserSeeder extends Seeder
@@ -12,10 +14,19 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Warlyn García',
-            'email' => 'warlyn@laravel.com',
-            'username' => 'warlyn.garcia',
-        ]);
+        DB::transaction(function () {
+            User::factory()->create([
+                'name' => 'Warlyn García',
+                'email' => 'warlyn@laravel.com',
+                'username' => 'warlyn.garcia',
+            ]);
+
+            $client = Client::factory()->create([
+                'name' => 'Admin',
+                'personal_access_client' => false,
+                'password_client' => false,
+                'revoked' => false,
+            ]);
+        });
     }
 }

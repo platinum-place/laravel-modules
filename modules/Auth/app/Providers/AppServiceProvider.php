@@ -2,9 +2,7 @@
 
 namespace Modules\Auth\app\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Modules\Auth\app\Http\Middleware\EnsureEmailIsVerified;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app['router']->aliasMiddleware('verified', EnsureEmailIsVerified::class);
+        $this->app->register(PassportServiceProvider::class);
+        $this->app->register(MiddlewareServiceProvider::class);
+        $this->app->register(RouteServiceProvider::class);
     }
 
     /**
@@ -21,13 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Route::prefix('api')
-            ->middleware('api')
-            ->group(__DIR__.'/../../routes/api.php');
-
-        Route::middleware('web')
-            ->group(__DIR__.'/../../routes/web.php');
-
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 }
