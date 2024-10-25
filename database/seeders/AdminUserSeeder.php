@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Modules\Auth\app\Models\Client;
 use Modules\Auth\app\Models\User;
+use Modules\Auth\modules\Authorization\app\Enums\RoleEnum;
 
 class AdminUserSeeder extends Seeder
 {
@@ -15,11 +16,13 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         DB::transaction(function () {
-            User::factory()->create([
+            $user=User::factory()->create([
                 'name' => 'Warlyn García',
                 'email' => 'warlyn@laravel.com',
                 'username' => 'warlyn.garcia',
             ]);
+
+            $user->assignRole(RoleEnum::admin->value);
 
             $client = Client::factory()->create([
                 'name' => 'Admin',

@@ -3,6 +3,7 @@
 namespace Modules\Auth\app\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Auth\modules\Authorization\app\Providers\ConfigServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(PassportServiceProvider::class);
         $this->app->register(MiddlewareServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(ModuleServiceProvider::class);
     }
 
     /**

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Auth\app\Enums;
+namespace Modules\Auth\modules\Authorization\app\Enums;
 
 use App\Enums\EnumsTrait;
 
-enum ActionEnum: int
+enum ModelActionEnum: int
 {
     use EnumsTrait;
 

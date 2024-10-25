@@ -32,6 +32,7 @@ class PassportServiceProvider extends ServiceProvider
         Passport::tokensExpireIn(now()->addHour());
         Passport::useClientModel(Client::class);
 
+        // Register driver
         Auth::viaRequest('passport', function (Request $request) {
             $tokenId = Configuration::forSymmetricSigner(new Sha256, InMemory::plainText('empty', 'empty'))
                 ->parser()
@@ -48,6 +49,7 @@ class PassportServiceProvider extends ServiceProvider
             return $token->client;
         });
 
+        // add driver in config auth file in core app
         Config::set('auth.guards.api', [
             'driver' => 'passport',
         ]);
