@@ -6,7 +6,7 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
-use Modules\Auth\app\Models\User;
+use Modules\Authentication\app\Models\User;
 use Tests\TestCase;
 
 class EmailVerificationTest extends TestCase

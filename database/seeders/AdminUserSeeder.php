@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Modules\Auth\app\Models\Client;
-use Modules\Auth\app\Models\User;
-use Modules\Auth\modules\Authorization\app\Enums\RoleEnum;
+use Modules\Authentication\app\Models\Client;
+use Modules\Authentication\app\Models\User;
+use Modules\Authentication\modules\Authorization\app\Enums\RoleEnum;
 
 class AdminUserSeeder extends Seeder
 {
