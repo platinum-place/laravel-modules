@@ -18,6 +18,7 @@ class User extends BaseAuthModel
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -66,7 +67,7 @@ class User extends BaseAuthModel
 
     public function syncPermissionToActionMultiple(array $permissions): void
     {
-        foreach ($permissions as $permission){
+        foreach ($permissions as $permission) {
             $this->syncPermissionTo($permission);
         }
     }

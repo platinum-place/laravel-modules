@@ -2,8 +2,8 @@
 
 namespace Modules\Auth\app\Repositories;
 
-use App\Models\User;
 use App\Repositories\BaseRepository;
+use Modules\Auth\app\Models\User;
 
 class UserRepository extends BaseRepository
 {

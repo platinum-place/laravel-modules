@@ -16,7 +16,7 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         DB::transaction(function () {
-            $user=User::factory()->create([
+            $user = User::factory()->create([
                 'name' => 'Warlyn García',
                 'email' => 'warlyn@laravel.com',
                 'username' => 'warlyn.garcia',

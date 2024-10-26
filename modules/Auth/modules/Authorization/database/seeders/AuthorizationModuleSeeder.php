@@ -3,7 +3,6 @@
 namespace Modules\Auth\modules\Authorization\database\seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Auth\database\seeders\LogLevelSeeder;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

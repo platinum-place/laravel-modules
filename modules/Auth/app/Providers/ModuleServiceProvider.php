@@ -3,7 +3,6 @@
 namespace Modules\Auth\app\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Auth\modules\Authorization\app\Providers\ConfigServiceProvider;
 
 class ModuleServiceProvider extends ServiceProvider
 {

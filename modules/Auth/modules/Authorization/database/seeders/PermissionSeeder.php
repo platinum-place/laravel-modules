@@ -2,7 +2,6 @@
 
 namespace Modules\Auth\modules\Authorization\database\seeders;
 
-
 use Illuminate\Database\Seeder;
 use Modules\Auth\modules\Authorization\app\Enums\ModelActionEnum;
 use Modules\Auth\modules\Authorization\app\Enums\ModelEnum;
