@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\Auth\app\Http\Requests\Client\StoreClientRequest;
 use Modules\Auth\app\Http\Requests\Client\UpdateClientRequest;
-use Modules\Auth\app\Http\Requests\User\StoreUserRequest;
-use Modules\Auth\app\Http\Requests\User\UpdateUserRequest;
 use Modules\Auth\app\Http\Resources\ClientResource;
 use Modules\Auth\app\Services\ClientService;
 
@@ -80,4 +78,3 @@ class ClientController extends Controller
         return new ClientResource($record);
     }
 }
-

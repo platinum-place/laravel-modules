@@ -4,7 +4,6 @@ namespace Modules\Auth\app\Repositories;
 
 use App\Repositories\BaseRepository;
 use Modules\Auth\app\Models\Client;
-use Modules\Auth\app\Models\User;
 
 class ClientRepository extends BaseRepository
 {

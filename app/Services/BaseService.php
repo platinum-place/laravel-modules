@@ -33,7 +33,7 @@ abstract class BaseService
     /**
      * Update a record.
      */
-    public function update(int|string $id, array $data):BaseModel|Model
+    public function update(int|string $id, array $data): BaseModel|Model
     {
         return $this->repository->update($id, $data);
     }

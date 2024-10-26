@@ -25,12 +25,12 @@ class StoreClientRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'user_id' => ['nullable', 'integer', Rule::exists(User::class,'id')],
-//            'redirect' => ['required', 'url'],
-//            'personal_access_client' => ['nullable', 'boolean'],
-//            'password_client' => ['nullable', 'boolean'],
-//            'revoked' => ['nullable', 'boolean'],
-//            'secret' => ['nullable', 'string', 'max:100'],
+            'user_id' => ['nullable', 'integer', Rule::exists(User::class, 'id')],
+            //            'redirect' => ['required', 'url'],
+            //            'personal_access_client' => ['nullable', 'boolean'],
+            //            'password_client' => ['nullable', 'boolean'],
+            //            'revoked' => ['nullable', 'boolean'],
+            //            'secret' => ['nullable', 'string', 'max:100'],
         ];
     }
 }
