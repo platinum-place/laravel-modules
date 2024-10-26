@@ -4,16 +4,18 @@ namespace Modules\Auth\app\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Auth\app\Http\Requests\Client\StoreClientRequest;
+use Modules\Auth\app\Http\Requests\Client\UpdateClientRequest;
 use Modules\Auth\app\Http\Requests\User\StoreUserRequest;
 use Modules\Auth\app\Http\Requests\User\UpdateUserRequest;
-use Modules\Auth\app\Http\Resources\UserResource;
-use Modules\Auth\app\Services\UserService;
+use Modules\Auth\app\Http\Resources\ClientResource;
+use Modules\Auth\app\Services\ClientService;
 
-class UserController extends Controller
+class ClientController extends Controller
 {
-    protected UserService $service;
+    protected ClientService $service;
 
-    public function __construct(UserService $service)
+    public function __construct(ClientService $service)
     {
         $this->service = $service;
     }
@@ -25,17 +27,17 @@ class UserController extends Controller
     {
         $records = $this->service->all();
 
-        return UserResource::collection($records);
+        return ClientResource::collection($records);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
+    public function store(StoreClientRequest $request)
     {
         $record = $this->service->store($request->validated());
 
-        return new UserResource($record);
+        return new ClientResource($record);
     }
 
     /**
@@ -45,17 +47,17 @@ class UserController extends Controller
     {
         $record = $this->service->getById($id);
 
-        return new UserResource($record);
+        return new ClientResource($record);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, string $id)
+    public function update(UpdateClientRequest $request, string $id)
     {
         $record = $this->service->update($id, $request->validated());
 
-        return new UserResource($record);
+        return new ClientResource($record);
     }
 
     /**
@@ -75,6 +77,7 @@ class UserController extends Controller
     {
         $record = $this->service->restore($id);
 
-        return new UserResource($record);
+        return new ClientResource($record);
     }
 }
+

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Auth\app\Http\Requests;
+namespace Modules\Auth\app\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateUserRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required_without:email', 'string', 'max:255', Rule::unique('users', 'username')->ignore($this->id)],
-            'email' => ['required_without:username', 'string', 'email', 'max:255', Rule::unique('users', 'email')->ignore($this->id)],
+            'username' => ['required_without:email', 'string', 'max:255', Rule::unique('users', 'username')],
+            'email' => ['required_without:username', 'string', 'email', 'max:255', Rule::unique('users', 'email')],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }

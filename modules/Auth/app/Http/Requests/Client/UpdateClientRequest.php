@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Auth\app\Http\Requests;
+namespace Modules\Auth\app\Http\Requests\Client;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreUserRequest extends FormRequest
+class UpdateClientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,6 @@ class StoreUserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => ['required', 'string', 'max:255'],
-            'username' => ['required_without:email', 'string', 'max:255', Rule::unique('users', 'username')],
-            'email' => ['required_without:username', 'string', 'email', 'max:255', Rule::unique('users', 'email')],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ];
+        return (new StoreClientRequest)->rules();
     }
 }

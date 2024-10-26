@@ -2,13 +2,15 @@
 
 namespace App\Repositories;
 
+
 use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository
 {
-    protected BaseModel $model;
+    protected BaseModel|Model $model;
 
-    public function __construct(BaseModel $model)
+    public function __construct(BaseModel|Model $model)
     {
         $this->model = $model;
     }
@@ -33,7 +35,7 @@ abstract class BaseRepository
             ->setAppends($appends);
     }
 
-    public function save(array $data): BaseModel
+    public function save(array $data): BaseModel|Model
     {
         $this->model->fill($data);
         $this->model->save();
@@ -41,7 +43,7 @@ abstract class BaseRepository
         return $this->model;
     }
 
-    public function update(int|string $id, array $data)
+    public function update(int|string $id, array $data): BaseModel|Model
     {
         $this->model = $this->getBy('id', $id);
 
@@ -58,7 +60,7 @@ abstract class BaseRepository
         $this->model->delete();
     }
 
-    public function restore(int|string $id)
+    public function restore(int|string $id): BaseModel|Model
     {
         $this->model = $this->model
             ->onlyTrashed()

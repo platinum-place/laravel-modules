@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\BaseModel;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseService
 {
@@ -23,7 +25,7 @@ abstract class BaseService
         return $this->repository->getBy('id', $id, $with, $appends);
     }
 
-    public function store(array $data): \App\Models\BaseModel
+    public function store(array $data): BaseModel|Model
     {
         return $this->repository->save($data);
     }
@@ -31,7 +33,7 @@ abstract class BaseService
     /**
      * Update a record.
      */
-    public function update(int|string $id, array $data)
+    public function update(int|string $id, array $data):BaseModel|Model
     {
         return $this->repository->update($id, $data);
     }
@@ -47,7 +49,7 @@ abstract class BaseService
     /**
      * Restore a record.
      */
-    public function restore(int|string $id)
+    public function restore(int|string $id): Model|BaseModel
     {
         return $this->repository->restore($id);
     }
