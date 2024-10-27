@@ -1,3 +1,17 @@
+## Iniciar contenedor
+
+```bash
+composer install
+```
+
+```bash
+./vendor/bin/sail up -d
+```
+
+```bash
+./vendor/bin/sail artisan migrate --seed
+```
+
 ## Opcional: Crear un alias para Sail
 
 Si deseas configurar un alias para el comando:

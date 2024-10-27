@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Authentication\database\seeders\AuthModuleSeeder;
+use Modules\Authentication\database\seeders\AuthenticationModuleSeeder;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // Modules
-            AuthModuleSeeder::class,
+            AuthenticationModuleSeeder::class,
 
             // App
             LogLevelSeeder::class,
