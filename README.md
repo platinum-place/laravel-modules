@@ -1,12 +1,19 @@
 ## Iniciar contenedor
 
+Para los contenedores, estoy utilkizando la interfaz de comando de Laravel, Sail. Al ser scripts preparados, es posible utilizar las instrucciones de Laravel en su documentación.
+
+Para utilizarlo, es necesario contar con las dependencias necesarias:
+
 ```bash
 composer install
 ```
 
+Despues, iniciar sail: 
+
 ```bash
 ./vendor/bin/sail up -d
 ```
+Listo, el proyecto esta en funcionamiento. Solo restaria ejecutar las migraciones y seeders:
 
 ```bash
 ./vendor/bin/sail artisan migrate --seed
